@@ -1,16 +1,16 @@
-const {foxql} = window
+const {foxql, saveDocument} = window
 
 
-function publishTweetOnD2a()
+async function publishTweetOnD2a()
 {
     const value = document.querySelector('.DraftEditor-root').innerText
     const url = window.location.href
     if(value.trim() == '') return;
 
-    console.log({
-        url: url,
-        platform: 'twitter',
-        content: value
+    await saveDocument({
+      url: url,
+      platform: 'twitter',
+      content: value
     })
 }
 

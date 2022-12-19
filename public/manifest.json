@@ -1,7 +1,7 @@
 {
 
-    "name": "Example",
-    "description": "Description",
+    "name": "D2A Network",
+    "description": "Social media of everything. Simple, decentralized and democratic",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
@@ -15,6 +15,6 @@
     }
 ],
     "action": {
-        "default_popup": "index.html"
+      "default_popup": "index.html"
     }
 }

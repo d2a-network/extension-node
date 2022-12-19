@@ -1,5 +1,6 @@
 import foxql from "@foxql/foxql-peer";
 import * as dbConfig from './database.js';
+import sha256 from 'crypto-js/sha256';
 
 const node = new foxql({
   maxNodeCount: 80, // max connection limit
@@ -15,4 +16,15 @@ node.setMetaData({
 
 node.start(dbConfig);
 
+async function save(document)
+{
+  const hash = sha256(document.url + document.content).toString();
+  document.documentKey = hash
+  const {indexedDb} = node
+  const objectStore = indexedDb.transaction('documents', 'readwrite').objectStore('documents')
+  return objectStore.add(document)
+}
+
+window.saveDocument = save
 window.foxql = node
+
