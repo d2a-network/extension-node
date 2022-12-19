@@ -1,6 +1,6 @@
-# Her şeyin sosyal ağı
+# d2a.network
 
-[![./screenshot.png]
+[![screenshot](./screenshot.png)
 
 Bu basit bir chrome eklentisi. Hali hazırda kullandığınız platformları terk etmeden başka bir ağ ile
 konuşup veri değiştokuşu yapmanızı sağlıyor.
