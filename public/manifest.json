@@ -1,0 +1,20 @@
+{
+
+    "name": "Example",
+    "description": "Description",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+    {
+      "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
+      "js": ["build/bundle.js", "build/foxql.js", "platforms/twitter.js"],
+      "run_at": "document_end"
+    }
+],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
