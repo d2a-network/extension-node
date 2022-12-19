@@ -1,6 +1,6 @@
 # d2a.network
 
-[![screenshot](./screenshot.png)
+![screenshot](./screenshot.png)
 
 Bu basit bir chrome eklentisi. Hali hazırda kullandığınız platformları terk etmeden başka bir ağ ile
 konuşup veri değiştokuşu yapmanızı sağlıyor.
