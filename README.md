@@ -6,3 +6,5 @@ Bu basit bir chrome eklentisi. Hali hazırda kullandığınız platformları ter
 konuşup veri değiştokuşu yapmanızı sağlıyor.
 
 Anlatmaya değer bir şey yok. Eklentiyi kurun ve bulunduğunuz platformda paylaşamadığınız şeyleri d2a üzerinde yayınlayın.
+
+![screenshot](./screenshot2.png)
