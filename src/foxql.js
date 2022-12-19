@@ -1,4 +1,5 @@
 import foxql from "@foxql/foxql-peer";
+import * as dbConfig from './database.js';
 
 const node = new foxql({
   maxNodeCount: 80, // max connection limit
@@ -12,6 +13,6 @@ node.setMetaData({
   description: "test-desc",
 });
 
-node.start();
+node.start(dbConfig);
 
 window.foxql = node
