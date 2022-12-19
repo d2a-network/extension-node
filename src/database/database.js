@@ -7,12 +7,13 @@ export function onerror(e)
 }
 
 export function onupgradeneeded(){
-    //1
     const db = this.request.result;
-    //2
     const store = db.createObjectStore("documents", { keyPath: "id" })
   
-    //3
+    store.createIndex("url", ["url"])
     store.createIndex("content", ["content"])
-    store.createIndex('documentKey', ["documentKey"], { unique: true })
+    store.createIndex("platform", ["platform"])
+    store.createIndex("documentKey", ["documentKey"], { unique: true })
+
+    console.log('Database init')
 }
