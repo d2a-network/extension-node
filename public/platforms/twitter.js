@@ -25,6 +25,60 @@ const d2aButtonTemplate = `<div class="css-1dbjc4n r-1awozwy r-18u37iz" id = "d2
 </div>
 </div>`
 
+setTimeout(()=> {
+  const el = document.querySelector(`main[role=main] div[data-testid=primaryColumn] section div[data-testid=cellInnerDiv]:nth-child(3)`)
+  el.insertAdjacentHTML('afterbegin', `<div style = "
+    position: relative;
+    width: 100%;
+    background: #0c0c0c;
+    padding: 0.5rem;
+    border-bottom: 0.9px solid #333;
+    color: #eee;
+    display: flex;
+    flex-direction: row;
+    font-family: TwitterChirp;
+  " class = "css-1dbjc4n">
+    <div class = "d2a-avatar" style = "padding: 0.5rem;">
+        <img src = "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png" style = "width: 48px; height: 48px; border-radius: 900px;">
+    </div>
+    <div class = "d2a-tweet-content" style = "
+      padding: 0.5rem;
+    ">
+
+    <div id = "d2a-tweet-header" style = "display:flex; align-items: center;">
+      <b>bora</b> <small style = "margin-left: auto; color: #333;">@99701857-6287-4863-b929-5b68f5dccdf5</small>
+    </div>
+    <div id = "d2a-tweet-area" style = "
+      margin-top:0.7rem;
+    ">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    </div>
+
+    <div id = "d2a-tweed-footer" style = "display: flex; margin-top: 1rem;">
+      <div dir="ltr" class="css-901oao r-1awozwy r-1bwzh9t r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0" style="color: rgb(249, 24, 128); cursor: pointer;">
+        <div class="css-1dbjc4n r-xoduu5">
+          <div class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
+            <g>
+              <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="css-1dbjc4n r-xoduu5 r-1udh08x">
+          <span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);">
+            <span class="css-901oao css-16my406 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0">
+              <span class="css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0">2</span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>`)
+}, 3000)
+
+
 function findStatusElement()
 {
     setInterval(()=> {
