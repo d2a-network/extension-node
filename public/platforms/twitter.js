@@ -15,7 +15,16 @@ async function publishTweetOnD2a()
 
 async function loadD2aDocuments()
 {
-  
+  const answer = await node.ask({
+    transportPackage: {
+      p2pChannelName: "find-documents",
+      url: window.location.href,
+    },
+    stickyNode: true,
+    livingTime: 2000
+  });
+
+  console.log(answer)
 }
 
 

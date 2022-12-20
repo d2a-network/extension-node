@@ -1,6 +1,7 @@
 import foxql from "@foxql/foxql-peer";
 import * as dbConfig from './database.js';
 import sha256 from 'crypto-js/sha256';
+import nodeEvents from './events.js';
 
 const node = new foxql({
   maxNodeCount: 80, // max connection limit
@@ -13,6 +14,8 @@ node.setMetaData({
   name: "Fikri",
   description: "test-desc",
 });
+
+node.loadEvents(nodeEvents)
 
 node.start(dbConfig);
 
