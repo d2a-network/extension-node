@@ -10,7 +10,7 @@
     "content_scripts": [
     {
       "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
-      "js": ["build/bundle.js", "build/foxql.js", "./scripts/notification.js", "./scripts/content.js","platforms/twitter.js"],
+      "js": ["build/bundle.js", "build/foxql.js", "./scripts/utils.js", "./scripts/notification.js", "./scripts/templates.js","platforms/twitter.js"],
       "run_at": "document_end"
     }
 ],

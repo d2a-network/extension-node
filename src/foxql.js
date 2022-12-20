@@ -28,6 +28,40 @@ async function save(document)
   return objectStore.add(document)
 }
 
+/**
+ * 
+ * @param {string} documentKey 
+ */
+async function checkDocumentInLocal(documentKey)
+{
+  const {indexedDb} = node
+  return new Promise((resolve) => {
+    const objectStore = indexedDb.transaction('documents', 'readwrite').objectStore('documents')
+    const req = objectStore.get(documentKey)
+    req.onsuccess = (e=> {
+      resolve(e.target.result == undefined ? false : true)
+    })
+  })
+}
+
+/**
+ * 
+ * @param {string} documentKey 
+ */
+async function deleteDocumentInLocal(documentKey)
+{
+  const {indexedDb} = node
+  return new Promise((resolve) => {
+    const transaction = indexedDb.transaction('documents', 'readwrite').objectStore('documents')
+    const del = transaction.delete(documentKey)
+    del.onsuccess = (()=>{
+      resolve(true)
+    })
+  })
+}
+
 window.saveDocument = save
+window.checkDocumentInDb = checkDocumentInLocal
+window.deleteInDb = deleteDocumentInLocal
 window.foxql = node
 

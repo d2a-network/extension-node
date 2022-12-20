@@ -34,10 +34,13 @@ export async function listener({sender, url}, simulate = false)
     const {indexedDb} = this
     const documents = await findDocuments(indexedDb, url)
     if(simulate) { 
-        console.log('Simulate state')
         // work on proof case
         return documents.length > 0
     }
     
-    this.reply(sender, documents)
+    this.reply(sender, {
+        documents: documents,
+        node_metadata: this.nodeMetaData,
+        node_id: this.nodeId
+    })
 }

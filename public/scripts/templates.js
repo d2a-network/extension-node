@@ -38,19 +38,21 @@ font-family: TwitterChirp;
 </div>
 <div class = "d2a-tweet-content" style = "
   padding: 0.5rem;
+  width: 100%;
 ">
 
 <div id = "d2a-tweet-header" style = "display:flex; align-items: center;">
-  <b>bora</b> <small style = "margin-left: auto; color: #333;">@99701857-6287-4863-b929-5b68f5dccdf5</small>
+  <b>{name}</b> <small style = "margin-left: auto; color: #444;">@{node_id}</small>
 </div>
 <div id = "d2a-tweet-area" style = "
-  margin-top:0.7rem;
+  margin-top:0.5rem;
 ">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  {document_content}
 </div>
 
 <div id = "d2a-tweed-footer" style = "display: flex; margin-top: 1rem;">
-  <div dir="ltr" class="css-901oao r-1awozwy r-1bwzh9t r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0" style="color: rgb(249, 24, 128); cursor: pointer;">
+  <div dir="ltr" class="css-901oao r-1awozwy r-1bwzh9t r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0" style="color:#ccc; cursor: pointer;"
+  data-documentkey="{document_key}" id = "d2a-document-{document_key}">
     <div class="css-1dbjc4n r-xoduu5">
       <div class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
       <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
@@ -62,7 +64,7 @@ font-family: TwitterChirp;
     <div class="css-1dbjc4n r-xoduu5 r-1udh08x">
       <span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);">
         <span class="css-901oao css-16my406 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0">
-          <span class="css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0">2</span>
+          <span class="css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0">{recieve_count}</span>
         </span>
       </span>
     </div>
