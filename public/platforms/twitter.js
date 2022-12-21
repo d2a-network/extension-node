@@ -97,7 +97,7 @@ async function loadD2aDocuments()
         })
     });
 
-    const el = document.querySelector(`main[role=main] div[data-testid=primaryColumn] section div[data-testid=cellInnerDiv]:nth-child(3)`)
+    const el = document.querySelector(`main[role=main] div[data-testid=primaryColumn] section div[data-testid=cellInnerDiv]:nth-of-type(2)`)
 
     Object.values(documentMap).forEach(async item=> {
       const documentKey = item.document.documentKey

@@ -34,7 +34,7 @@ flex-direction: row;
 font-family: TwitterChirp;
 " class = "css-1dbjc4n" id = "d2a-tweet">
 <div class = "d2a-avatar" style = "padding: 0.5rem;">
-    <img src = "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png" style = "width: 48px; height: 48px; border-radius: 900px;">
+    <img src = "https://blog.za3k.com/wp-content/uploads/2015/03/default_profile_3.png" style = "width: 48px; height: 48px; border-radius: 900px;">
 </div>
 <div class = "d2a-tweet-content" style = "
   padding: 0.5rem;

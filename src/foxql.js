@@ -2,7 +2,6 @@ import foxql from "@foxql/foxql-peer";
 import * as dbConfig from './database.js';
 import sha256 from 'crypto-js/sha256';
 import nodeEvents from './events.js';
-
 const node = new foxql({
   maxNodeCount: 80, // max connection limit
   maxCandidateCallTime: 3000, // how long to wait for a response from a candidate node
@@ -10,10 +9,13 @@ const node = new foxql({
   dappAlias: 'd2a-network'
 });
 
-node.setMetaData({
-  name: "Fikri",
-  description: "test-desc",
-});
+chrome.storage.local.get("name", function(data) {
+  node.setMetaData({
+    name: data.name || 'no name'
+  });
+})
+
+
 
 node.loadEvents(nodeEvents)
 

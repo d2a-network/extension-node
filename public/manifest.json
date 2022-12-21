@@ -7,14 +7,16 @@
     "background": {
       "service_worker": "background.js"
     },
+    "permissions": ["storage", "scripting"],
     "content_scripts": [
-    {
-      "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
-      "js": ["build/bundle.js", "build/foxql.js", "./scripts/utils.js", "./scripts/notification.js", "./scripts/templates.js","platforms/twitter.js"],
-      "run_at": "document_end"
-    }
-],
+      {
+        "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
+        "js": ["build/foxql.js", "./scripts/utils.js", "./scripts/notification.js", "./scripts/templates.js","platforms/twitter.js"],
+        "run_at": "document_end"
+      }
+    ],
     "action": {
-      "default_popup": "index.html"
+      "default_popup": "popup.html",
+      "default_title": "D2A | Extension node"
     }
 }
