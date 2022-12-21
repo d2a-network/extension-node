@@ -83,6 +83,7 @@ async function loadD2aDocuments()
   if(count > 0) {
     documentMap = {}
     data.forEach(({documents, node_metadata, node_id}) => {
+      console.log(node_metadata)
         documents.forEach((document)=> {
           if(documentMap[document.documentKey] == undefined) {
             documentMap[document.documentKey] = {
@@ -107,6 +108,7 @@ async function loadD2aDocuments()
       //template = template.replace('{recieve_count}', escapeXSS(item.recieve_count))
       template = template.replace('{node_id}', escapeXSS(item.node_id))
       template = template.replace(/{document_key}/gi, escapeXSS(documentKey))
+      template = template.replace('{avatar_url}', escapeXSS(item.node_metadata.avatar))
       el.insertAdjacentHTML('afterbegin', template)
 
       const targetElement = document.querySelector('#d2a-document-'+documentKey)

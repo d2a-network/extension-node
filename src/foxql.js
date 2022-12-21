@@ -14,12 +14,17 @@ chrome.storage.local.get("name", function(data) {
     name: data.name || 'no name'
   });
 })
-
-
+chrome.storage.local.get("nodeAvatar", function(data) {
+  node.nodeMetaData.avatar = data.nodeAvatar 
+})
 
 node.loadEvents(nodeEvents)
 
 node.start(dbConfig);
+
+chrome.storage.local.set({ nodeId: node.nodeId }).then(() => {
+ 
+});
 
 async function save(document)
 {
