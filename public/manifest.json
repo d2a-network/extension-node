@@ -1,13 +1,13 @@
 {
 
-    "name": "D2A Network",
+    "name": "D2A",
     "description": "Social media of everything. Simple, decentralized and democratic",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": ["storage", "scripting"],
+    "permissions": ["storage"],
     "content_scripts": [
       {
         "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
@@ -17,6 +17,11 @@
     ],
     "action": {
       "default_popup": "popup.html",
-      "default_title": "D2A | Extension node"
+      "default_title": "D2A"
+    },
+    "icons": {
+      "32": "./assets/icon32.png",
+      "48": "./assets/icon48.png",
+      "128": "./assets/icon128.png"
     }
 }
