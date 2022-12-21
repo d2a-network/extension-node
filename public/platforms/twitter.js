@@ -1,4 +1,4 @@
-const {foxql, saveDocument, showNotification, checkDocumentInDb, deleteInDb} = window
+const {foxql, saveDocument, showNotification, checkDocumentInDb, deleteInDb, findDocumentInDb} = window
 
 let documentMap = {}
 
@@ -8,11 +8,14 @@ async function publishTweetOnD2a()
   const url = window.location.href
   if(value.trim() == '') return;
 
-  const status = await saveDocument({
+   await saveDocument({
     url: url,
     platform: 'twitter',
     content: value
   })
+  showNotification('success', '🤫 Şimdilik kaydettim')
+  document.querySelector('.DraftEditor-root').dispatchEvent(new KeyboardEvent('keydown', {'key': '8'}));
+  await loadD2aDocuments()
 }
 
 
@@ -27,7 +30,7 @@ async function handleClick()
 
   const checkInLocal = await checkDocumentInDb(documentKey)
   let color = 'rgb(249, 24, 128)'
-  
+
   if(!checkInLocal) {
     await saveDocument(_document)
   }else{
@@ -35,25 +38,48 @@ async function handleClick()
     await deleteInDb(documentKey)
   }
   document.querySelector('#d2a-document-'+documentKey).style.color = color;
+  await loadD2aDocuments()
 }
 
 
 async function loadD2aDocuments()
 {
+  document.querySelectorAll("#d2a-tweet").forEach(e => e.remove());
+  showNotification('success', 'D2A Tweetleri kontrol ediliyor 🥳')
+  const url = window.location.href
+  const searchInLocal = await findDocumentInDb(url)
+  const myNodeId = foxql.nodeId
+  const myNodeMeta = foxql.nodeMetaData
+
   const ask = await node.ask({
     transportPackage: {
       p2pChannelName: "find-documents",
-      url: window.location.href,
+      url: url,
     },
     stickyNode: true,
     livingTime: 1700
   });
 
-  if(!ask) {
-    showNotification('success', 'error: peer connection state')
+  if(!ask && searchInLocal.length <= 0) {
+    showNotification('success', '😱 Eyvah kimseyi bulamadım')
     return;
   }
-  const {results: {count, data}} = ask
+  let {results: {count, data}} = ask || {
+    results: {
+      count: 0,
+      data: []
+    }
+  }
+
+  if(searchInLocal.length > 0) {
+    data.push({
+      documents: searchInLocal,
+      node_metadata: myNodeMeta,
+      node_id: myNodeId
+    })
+    count +=1 
+  }
+
   if(count > 0) {
     documentMap = {}
     data.forEach(({documents, node_metadata, node_id}) => {
@@ -78,7 +104,7 @@ async function loadD2aDocuments()
       let template = twitterContentTemplate
       template = template.replace('{name}', escapeXSS(item.node_metadata.name))
       template = template.replace('{document_content}', escapeXSS(item.document.content))
-      template = template.replace('{recieve_count}', escapeXSS(item.recieve_count))
+      //template = template.replace('{recieve_count}', escapeXSS(item.recieve_count))
       template = template.replace('{node_id}', escapeXSS(item.node_id))
       template = template.replace(/{document_key}/gi, escapeXSS(documentKey))
       el.insertAdjacentHTML('afterbegin', template)

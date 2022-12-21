@@ -60,8 +60,39 @@ async function deleteDocumentInLocal(documentKey)
   })
 }
 
+/**
+ * 
+ * @param {string} url 
+ * @returns 
+ */
+async function findDocumentInLocal(url)
+{
+    const {indexedDb} = node
+    const store = indexedDb.transaction('documents', 'readonly').objectStore('documents')
+    const cursorRequest = store.openCursor();
+    
+    let foundedDocuments = []
+    
+    return new Promise((resolve) => {
+        cursorRequest.onsuccess = (e)=> {
+            const cursor = e.target.result;
+            if(cursor) {
+                const document = cursor.value
+                if(document.url == url){
+                    foundedDocuments.push(document)
+                }
+                cursor.continue()
+            }else{
+                resolve(foundedDocuments)
+            }
+            
+        }    
+    }) 
+}
+
 window.saveDocument = save
 window.checkDocumentInDb = checkDocumentInLocal
 window.deleteInDb = deleteDocumentInLocal
+window.findDocumentInDb = findDocumentInLocal
 window.foxql = node
 
