@@ -6,8 +6,7 @@ const d2aButtonTemplate = `<div class="css-1dbjc4n r-1awozwy r-18u37iz" id = "d2
     </span>
   </div>
 </div>
-</div>`
-
+</div>`;
 
 const d2aShowThreadBtn = `<div id = "d2a-show-thread-btn" class="css-1dbjc4n" style="display: inline-grid; justify-content: inherit; transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px); -webkit-box-pack: inherit;">
 <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
@@ -20,7 +19,7 @@ const d2aShowThreadBtn = `<div id = "d2a-show-thread-btn" class="css-1dbjc4n" st
     </div>
   </div>
 </div>
-</div>`
+</div>`;
 
 const twitterContentTemplate = `<div style = "
 position: relative;
@@ -72,4 +71,4 @@ font-family: TwitterChirp;
 </div>
 
 </div>
-</div>`
+</div>`;

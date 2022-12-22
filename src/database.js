@@ -1,19 +1,20 @@
-export const version = 1
+export const version = 1;
 
-export function onerror(e)
-{
-    console.error("An error occurred with IndexedDB")
-    console.error(e)
+export function onerror(e) {
+  console.error("An error occurred with IndexedDB");
+  console.error(e);
 }
 
-export function onupgradeneeded(){
-    const db = this.request.result;
-    const store = db.createObjectStore("documents", {keyPath: "documentKey", autoIncrement: false})
-  
-    store.createIndex("url", ["url"])
-    store.createIndex("content", ["content"])
-    store.createIndex("platform", ["platform"])
-    store.createIndex("documentKey", ["documentKey"], { unique: true })
-    console.log('Database init')
-}
+export function onupgradeneeded() {
+  const db = this.request.result;
+  const store = db.createObjectStore("documents", {
+    keyPath: "documentKey",
+    autoIncrement: false,
+  });
 
+  store.createIndex("url", ["url"]);
+  store.createIndex("content", ["content"]);
+  store.createIndex("platform", ["platform"]);
+  store.createIndex("documentKey", ["documentKey"], { unique: true });
+  console.log("Database init");
+}
