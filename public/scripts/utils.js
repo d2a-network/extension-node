@@ -41,7 +41,6 @@ function tweetArticleTweetIdHandler(callback) {
         el.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
           `a[dir='ltr']`,
         ).href;
-      console.log(url);
       if (url.indexOf("/status/") < 0) return;
       url = url.replace("/analytics", "");
       callback(url);
