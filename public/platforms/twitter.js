@@ -26,7 +26,7 @@ async function publishTweetOnD2a() {
   showNotification(
     "success",
     `
-    <a href = "${url}">D2A Tweet'i görüntüle</a>
+    <a href = "${d2aTargetTweetReplyUrl}" style = "color:#f7f7f7;">Show D2A Tweet</a>
   `,
   );
   document
@@ -72,7 +72,6 @@ async function loadD2aDocuments() {
   });
 
   if (!ask && searchInLocal.length <= 0) {
-    showNotification("success", "😱");
     return;
   }
   let {
@@ -181,11 +180,10 @@ function findStatusElement() {
       // disable model tweet view
       //return;
     }
-
-    if (href != lastTwitterPage && document.readyState === "complete") {
-      tweetArticleTweetIdHandler((url) => {
-        d2aTargetTweetReplyUrl = url;
-      });
+    tweetArticleTweetIdHandler((url) => {
+      d2aTargetTweetReplyUrl = url;
+    });
+    if (href != lastTwitterPage) {
       loadD2aDocuments();
       lastTwitterPage = href;
     }

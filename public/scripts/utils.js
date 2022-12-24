@@ -36,30 +36,15 @@ function tweetArticleTweetIdHandler(callback) {
       return;
 
     el.classList.add("d2a-added-event-listener");
-    el.addEventListener("click", function () {
-      try {
-        let url =
-          el.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
-            `a[dir='ltr']`,
-          ).href;
-        console.log(url);
-        if (url.indexOf("/status/") < 0) return;
-        url = url.replace("/analytics", "");
-        callback(url);
-      } catch (e) {
-        let url = document
-          .querySelector(`div[data-testid='reply']`)
-          .parentElement.parentElement.parentElement.parentElement.querySelector(
-            `div[dir='ltr'] a`,
-          ).href;
-        console.log(url);
-        if (url.indexOf("/status/") < 0) return;
-        url = url.replace("/analytics", "");
-        callback(url);
-        console.log(
-          "D2A: query selector error in tweetArticleTweetIdHandler:2",
-        );
-      }
+    el.parentElement.addEventListener("click", function () {
+      let url =
+        el.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
+          `a[dir='ltr']`,
+        ).href;
+      console.log(url);
+      if (url.indexOf("/status/") < 0) return;
+      url = url.replace("/analytics", "");
+      callback(url);
     });
   });
 }
