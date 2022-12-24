@@ -12,10 +12,7 @@
         nodeAvatar: `https://avatars.dicebear.com/api/adventurer/${avatarString}.svg`,
       })
       .then(() => {});
-  });
-
-  chrome.storage;
-
+  })
   async function handleSave() {
     chrome.storage.local.set({ name: $nodeName }).then(() => {
       alert("Node name saved");

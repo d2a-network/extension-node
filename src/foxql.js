@@ -25,6 +25,7 @@ node.start(dbConfig);
 chrome.storage.local.set({ nodeId: node.nodeId }).then(() => {});
 
 async function save(document) {
+  if (document.content.length > 280) return;
   const hash = sha256(document.url + document.content).toString();
   document.documentKey = hash;
   const { indexedDb } = node;

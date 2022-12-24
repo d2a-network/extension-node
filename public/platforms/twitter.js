@@ -10,13 +10,14 @@ const {
 let documentMap = {};
 let lastTwitterPage = null;
 let d2aTargetTweetReplyUrl = window.location.href;
+let previousUrl = "";
 
 const twitterRegex = new RegExp(/\/[^\/]+\/status\/[0-9]+/g);
 
 async function publishTweetOnD2a() {
   const value = document.querySelector(".DraftEditor-root").innerText;
   if (value.trim() == "") return;
-
+  if (value.length > 280) return;
   await saveDocument({
     url: d2aTargetTweetReplyUrl,
     platform: "twitter",
@@ -32,6 +33,7 @@ async function publishTweetOnD2a() {
   document
     .querySelector(".DraftEditor-root")
     .dispatchEvent(new KeyboardEvent("keydown", { key: "8" }));
+  d2aTargetTweetReplyUrl = window.location.href;
   await loadD2aDocuments();
 }
 
@@ -182,6 +184,7 @@ function findStatusElement() {
     }
     tweetArticleTweetIdHandler((url) => {
       d2aTargetTweetReplyUrl = url;
+      previousUrl = url;
     });
     if (href != lastTwitterPage) {
       loadD2aDocuments();
@@ -203,7 +206,14 @@ function findStatusElement() {
         .querySelector("#d2a-tweet-btn")
         .addEventListener("click", publishTweetOnD2a);
     }
-  }, 100);
+  }, 200);
 }
 
 findStatusElement();
+setInterval(function () {
+  const href = window.location.href;
+  if (previousUrl !== href && href == "https://twitter.com/home") {
+    previousUrl = href;
+    d2aTargetTweetReplyUrl = previousUrl;
+  }
+}, 100);
