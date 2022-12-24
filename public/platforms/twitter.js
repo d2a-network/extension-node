@@ -57,7 +57,6 @@ async function handleClick() {
 
 async function loadD2aDocuments() {
   document.querySelectorAll("#d2a-tweet").forEach((e) => e.remove());
-  showNotification("success", "D2A checking... 🥳");
   const url = window.location.href;
   const searchInLocal = await findDocumentInDb(url);
   const myNodeId = foxql.nodeId;
