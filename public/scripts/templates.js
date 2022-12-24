@@ -41,7 +41,9 @@ font-family: TwitterChirp;
 ">
 
 <div id = "d2a-tweet-header" style = "display:flex; align-items: center;">
-  <b>{name}</b> <small style = "margin-left: auto; color: #444;">@{node_id}</small>
+  <b>{name}</b> <span style = "margin-left: 0.3rem; color: #999;">@{node_id} 
+  <span class="css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0">·</span>
+  <time">{date_string}</time></span>
 </div>
 <div id = "d2a-tweet-area" style = "
   margin-top:0.5rem;
