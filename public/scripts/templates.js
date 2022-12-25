@@ -74,3 +74,62 @@ font-family: TwitterChirp;
 
 </div>
 </div>`;
+
+const eksisozlukD2aPublishDocumentBtnTemplate = `<div id = "d2a-entry-btn" style = "
+transition: border linear 0.2s, box-shadow linear 0.2s;
+border-radius: 3px;
+cursor: pointer;
+font-family: 'Source Sans Pro', sans-serif;
+width: fit-content;
+padding: 8px 8px;
+border: 1px solid #B0BEC5;
+background-color: #f6f7f7;
+color: #A56161;
+font-size: 100%;
+margin: 0;
+vertical-align: baseline;
+float: right;
+">
+D2A ağına salla
+</div>`;
+
+const eksisozlukD2aEntryTemplate = `<li>
+<div class="content"> {document_content} </div>
+<footer>
+  <div class="feedback-container">
+    <span class="favorite-links" style="padding-left: 0px;">
+      <a class="favorite-link" title="favorilere ekle" aria-label="favorilere ekle">
+        <svg class="eksico" id = "d2a-document-{document_key}" data-documentkey = "{document_key}">
+          <use xlink:href="#eksico-drop"></use>
+        </svg>
+      </a>
+      <a class="favorite-count toggles" style="display: none;"></a>
+      <div class="favorite-list-popup toggles-menu">
+        <div></div>
+      </div>
+    </span>
+  </div>
+  <div class="info">
+    <div class="entry-footer-bottom">
+      <div class="footer-info">
+        <div id="entry-nick-container">
+          <div id="entry-author">
+            <span class="entry-author" href="#">{name}</span>
+          </div>
+        </div>
+        <div>
+          <a class="entry-date permalink" href="/entry/146753190">{date_string}</a>
+        </div>
+      </div>
+      <div class="avatar-container">
+        <a href="/biri/albertcamuss">
+          <img class="avatar" src="{avatar_url}" data-default="//ekstat.com/img/default-profile-picture-light.svg">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="comment-summary">
+  <div class="comment-pages"></div>
+</div>
+</li>`;

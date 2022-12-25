@@ -20,7 +20,6 @@ function tweetArticleTweetIdHandler(callback) {
         const url = this.querySelector(
           `div[data-testid='User-Names'] a[dir='ltr']`,
         ).href;
-        console.log(url);
         if (url.indexOf("/status/") < 0) return;
         callback(url);
       } catch (e) {
