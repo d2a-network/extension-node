@@ -16,5 +16,6 @@ export function onupgradeneeded() {
   store.createIndex("content", ["content"]);
   store.createIndex("platform", ["platform"]);
   store.createIndex("documentKey", ["documentKey"], { unique: true });
+  store.createIndex("create_date", ["create_date"]);
   console.log("Database init");
 }

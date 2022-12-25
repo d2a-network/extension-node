@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "content_scripts": [
     {
       "matches": ["https://www.twitter.com/*", "https://twitter.com/*"],
@@ -16,6 +16,17 @@
         "./scripts/notification.js",
         "./scripts/templates.js",
         "platforms/twitter.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://www.eksisozluk.com/*", "https://eksisozluk.com/*"],
+      "js": [
+        "build/foxql.js",
+        "./scripts/utils.js",
+        "./scripts/notification.js",
+        "./scripts/templates.js",
+        "platforms/eksisozluk.js"
       ],
       "run_at": "document_end"
     }

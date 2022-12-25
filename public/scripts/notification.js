@@ -43,5 +43,5 @@ window.showNotification = (status, content) => {
     if (findCurrentNotification != null) {
       findCurrentNotification.remove();
     }
-  }, 2500);
+  }, 3500);
 };
