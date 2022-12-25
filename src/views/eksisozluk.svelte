@@ -3,9 +3,12 @@
 </div>
 <Settings />
 
+<Footer />
+
 
 <script>
-    import Settings from '../components/settings.svelte'
+    import Settings from "../components/settings.svelte";
+    import Footer from "../components/footer.svelte";
 </script>
 
 <style>

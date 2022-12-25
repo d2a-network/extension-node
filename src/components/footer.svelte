@@ -1,4 +1,4 @@
-<div>
+<div style = "padding: 1rem;">
 <a href="https://network.foxql.com" target="_blank" rel="noreferrer"
     >Explorer</a
 >
@@ -12,6 +12,6 @@
 >
 
 <div style="margin-top: 2rem;">
-    <p>Version: 0.0.1</p>
+    <p>Version: 0.0.2</p>
 </div>
 </div>
